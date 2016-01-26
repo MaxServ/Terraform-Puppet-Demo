@@ -1,0 +1,6 @@
+# The terraform.tfvars file contains local secrets like AWS access key. Don't share it.
+Terraform/terraform.tfvars
+# The *.tfstate.backup files contain local backups of the (important) versioned .tfstate files.
+Terraform/*.backup
+# Certificates are uploaded to IAM using Terraform. Do not version them.
+Terraform/certificates/*.pem
