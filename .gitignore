@@ -4,3 +4,7 @@ Terraform/terraform.tfvars
 Terraform/*.backup
 # Certificates are uploaded to IAM using Terraform. Do not version them.
 Terraform/certificates/*.pem
+
+
+# Generic ignores
+.idea
