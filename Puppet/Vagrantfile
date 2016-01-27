@@ -1,0 +1,40 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Copyright 2016 Remco Overdijk - MaxServ B.V.
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+# Throw an error if required Vagrant plugins are not installed
+plugins = { 'vagrant-hostsupdater' => nil,
+						'vagrant-vbguest' => nil}
+
+plugins.each do |plugin, version|
+	unless Vagrant.has_plugin? plugin
+		error = "The '#{plugin}' plugin is not installed! Try running:\nvagrant plugin install #{plugin}"
+		error += " --plugin-version #{version}" if version
+		raise error
+	end
+end
+
+Vagrant.configure(2) do |config|
+  config.vm.box = "vStone/centos-7.x-puppet.3.x"
+  config.vm.hostname = "puppet.local.dev"
+	config.hostsupdater.aliases = ["puppet.demo"]
+	config.hostsupdater.remove_on_suspend = true
+
+  facterhash = {
+		"vagrant" => true,
+		"is_type" => "demo"
+	}
+  facterstring = facterhash.to_yaml
+	fillfacter = <<SCRIPT
+[ -d /etc/facter/facts.d ] || mkdir -p /etc/facter/facts.d
+touch /etc/facter/facts.d/vagrant.yaml
+echo "#{facterstring}"  > /etc/facter/facts.d/vagrant.yaml
+SCRIPT
+	config.vm.provision "shell", inline: fillfacter
+  config.vm.network "private_network", ip: "192.168.3.10"
+end
