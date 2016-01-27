@@ -1,3 +1,9 @@
+/* Copyright 2016 Remco Overdijk - MaxServ B.V.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 resource "aws_elb" "demo-maxserv-com" {
   name = "demo-maxserv-com"
   # Although the webservers live in private subnets, the ELB's have to be in a PUBLIC subnet to be connected.
