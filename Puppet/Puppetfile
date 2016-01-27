@@ -1,0 +1,6 @@
+moduledir '/etc/puppet/modules'
+mod 'demo', :local => true
+mod 'stahnma/epel'
+mod 'puppetlabs/stdlib'
+mod 'puppetlabs/firewall'
+

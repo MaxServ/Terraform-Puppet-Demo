@@ -1,0 +1,14 @@
+---
+:backends:
+  - yaml
+:yaml:
+  :datadir: "/etc/puppet/hieradata"
+:hierarchy:
+  - "nodes/%{::clientcert}"
+  - "types/%{::is_type}"
+  - "%{::environment}"
+  - common
+  - apache-errorpages
+:logger: console
+:merge_behavior: deeper
+

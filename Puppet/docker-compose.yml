@@ -1,0 +1,4 @@
+puppetmaster:
+  build: .
+  ports:
+    - 8140:8140

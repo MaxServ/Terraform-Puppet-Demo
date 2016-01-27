@@ -1,0 +1,7 @@
+---
+apache:
+  packages: ['httpd']
+  servicename: 'httpd'
+  base: '/etc/httpd'
+  errorPagesConfig: 'puppet:///modules/demo/apache-errorpages.conf'
+  httpdConfig: 'puppet:///modules/demo/httpd.conf'

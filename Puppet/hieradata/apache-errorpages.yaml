@@ -1,0 +1,87 @@
+---
+apache-errorpages:
+  HTTP_BAD_REQUEST:
+    title: "HTTP ERROR 400: BAD REQUEST"
+    header: "HTTP ERROR 400: BAD REQUEST"
+    message: "Your browser (or proxy) sent a request that his server could not understand."
+    email: "operations@maxserv.com"
+  HTTP_UNAUTHORIZED:
+    title: "HTTP ERROR 401: UNAUTHORIZED"
+    header: "HTTP ERROR 401: UNAUTHORIZED"
+    message: "This server could not verify that you are authorized to access the URL you requested. You either supplied the wrong credentials (e.g., bad password), or your browser doesn't understand how to supply the credentials required."
+    email: "operations@maxserv.com"
+  HTTP_FORBIDDEN:
+    title: "HTTP ERROR 403: FORBIDDEN"
+    header: "HTTP ERROR 403: FORBIDDEN"
+    message: "You don't have permission to access the requested directory. There is either no index document or the directory is read-protected."
+    email: "operations@maxserv.com"
+  HTTP_NOT_FOUND:
+    title: "HTTP ERROR 404: NOT FOUND"
+    header: "HTTP ERROR 404: NOT FOUND"
+    message: "The requested URL was not found on this server."
+    email: "operations@maxserv.com"
+  HTTP_METHOD_NOT_ALLOWED:
+    title: "HTTP ERROR 405: METHOD NOT ALLOWED"
+    header: "HTTP ERROR 405: METHOD NOT ALLOWED"
+    message: "The method used for the request is not allowed for the requested URL."
+    email: "operations@maxserv.com"
+  HTTP_REQUEST_TIME_OUT:
+    title: "HTTP ERROR 408: REQUEST TIME OUT"
+    header: "HTTP ERROR 408: REQUEST TIME OUT"
+    message: "The server closed the network connection because the browser didn't finish the request within the specified time."
+    email: "operations@maxserv.com"
+  HTTP_GONE:
+    title: "HTTP ERROR 410: GONE"
+    header: "HTTP ERROR 410: GONE"
+    message: "The requested URL is no longer available on this server and there is no forwarding address."
+    email: "operations@maxserv.com"
+  HTTP_LENGTH_REQUIRED:
+    title: "HTTP ERROR 411: LENGTH REQUIRED"
+    header: "HTTP ERROR 411: LENGTH REQUIRED"
+    message: "A request with this method requires a valid Content-Length header."
+    email: "operations@maxserv.com"
+  HTTP_PRECONDITION_FAILED:
+    title: "HTTP ERROR 412: PRECONDITION FAILED"
+    header: "HTTP ERROR 412: PRECONDITION FAILED"
+    message: "The precondition on the request for the URL failed positive evaluation."
+    email: "operations@maxserv.com"
+  HTTP_REQUEST_ENTITY_TOO_LARGE:
+    title: "HTTP ERROR 413: REQUEST ENTITY TOO LARGE"
+    header: "HTTP ERROR 413: REQUEST ENTITY TOO LARGE"
+    message: "The method used for the request does not allow the data transmitted, or the data volume exceeds the capacity limit."
+    email: "operations@maxserv.com"
+  HTTP_REQUEST_URI_TOO_LARGE:
+    title: "HTTP ERROR 414: REQUEST URI TOO LARGE"
+    header: "HTTP ERROR 414: REQUEST URI TOO LARGE"
+    message: "The length of the requested URL exceeds the capacity limit for this server. The request cannot be processed."
+    email: "operations@maxserv.com"
+  HTTP_UNSUPPORTED_MEDIA_TYPE:
+    title: "HTTP ERROR 415: UNSUPPORTED MEDIA TYPE"
+    header: "HTTP ERROR 415: UNSUPPORTED MEDIA TYPE"
+    message: "The server does not support the media type transmitted in the request."
+    email: "operations@maxserv.com"
+  HTTP_INTERNAL_SERVER_ERROR:
+    title: "HTTP ERROR 500: INTERNAL SERVER ERROR"
+    header: "HTTP ERROR 500: INTERNAL SERVER ERROR"
+    message: "The server encountered an internal error and was unable to complete your request."
+    email: "operations@maxserv.com"
+  HTTP_NOT_IMPLEMENTED:
+    title: "HTTP ERROR 501: NOT IMPLEMENTED"
+    header: "HTTP ERROR 501: NOT IMPLEMENTED"
+    message: "The server does not support the action requested by the browser."
+    email: "operations@maxserv.com"
+  HTTP_BAD_GATEWAY:
+    title: "HTTP ERROR 502: BAD GATEWAY"
+    header: "HTTP ERROR 502: BAD GATEWAY"
+    message: "The proxy server received an invalid response from an upstream server."
+    email: "operations@maxserv.com"
+  HTTP_SERVICE_UNAVAILABLE:
+    title: "HTTP ERROR 503: SERVICE UNAVAILABLE"
+    header: "HTTP ERROR 503: SERVICE UNAVAILABLE"
+    message: "The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later."
+    email: "operations@maxserv.com"
+  HTTP_VARIANT_ALSO_VARIES:
+    title: "HTTP ERROR 506: VARIANT ALSO VARIES"
+    header: "HTTP ERROR 506: VARIANT ALSO VARIES"
+    message: "A variant for the requested entity is itself a negotiable resource. Access not possible."
+    email: "operations@maxserv.com"
