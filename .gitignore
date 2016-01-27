@@ -4,7 +4,11 @@ Terraform/terraform.tfvars
 Terraform/*.backup
 # Certificates are uploaded to IAM using Terraform. Do not version them.
 Terraform/certificates/*.pem
+# Usually we would version .tfstate files, because a platform needs to be kept in a consistent state.
+# For a demo, used on multiple accounts, keeping such a state doesn' make sense.
+Terraform/*.tfstate
 
-
+# Ignore local vagrant state
+Puppet/.vagrant
 # Generic ignores
 .idea
