@@ -12,6 +12,10 @@ variable "region" {
   default = "eu-west-1"
 }
 
+variable "webserver-count" {
+  default = 4
+}
+
 variable "resource_group" {
   default = "terraform-puppet-demo"
 }
@@ -39,4 +43,8 @@ variable "private_blocks" {
 variable "public_key" {
   description = "Used in keypairs.tf to load an external public key, included by Env Var for example."
   # See: https://www.terraform.io/docs/configuration/variables.html for more info on Env Vars.
+}
+
+variable "master_ip" {
+  description = "The IP address of the puppet master, to be passed to the /etc/hosts of EC2 nodes."
 }

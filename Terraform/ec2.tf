@@ -42,3 +42,40 @@ resource "aws_eip" "eip-nat-b01" {
 output "nat-b01-ip" {
   value = "${aws_eip.eip-nat-b01.public_ip}"
 }
+
+
+resource "template_file" "webserver-userdata" {
+  count = "${var.webserver-count}"
+  template = "${file("templates/userdata.tpl")}"
+  vars {
+    hostname = "${format("webserver-%02d.demo.maxserv.com", count.index+1)}"
+    master_ip = "${var.master_ip}"
+  }
+}
+
+resource "aws_instance" "webserver" {
+  count = "${var.webserver-count}"
+  ami = "ami-33734044"
+  instance_type = "t2.micro"
+  vpc_security_group_ids = [
+    "${aws_security_group.demo-webservers.id}"
+  ]
+  user_data = "${element(template_file.webserver-userdata.*.rendered, count.index)}"
+  subnet_id = "${element(aws_subnet.demo-private.*.id, count.index%2)}"
+  source_dest_check = true
+  key_name = "${aws_key_pair.demo-administrator.key_name}"
+  monitoring = true
+  root_block_device  {
+    volume_type = "gp2"
+    volume_size = "10"
+    delete_on_termination = true
+  }
+  tags {
+    Name = "${format("webserver-%02d.demo.maxserv.com", count.index+1)}"
+    resource-group = "${var.resource_group}"
+  }
+}
+
+output "webserver-ips" {
+  value = "${join(",", aws_instance.webserver.*.dns)}"
+}
