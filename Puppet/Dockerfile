@@ -14,6 +14,7 @@ RUN rpm --import https://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs && rpm -ivh h
 RUN yum install -y puppet-$PUPPET_VERSION
 RUN yum install -y puppet-server-$PUPPET_VERSION
 RUN gem install r10k
+RUN gem install deep_merge
 
 ADD puppet.conf /etc/puppet/puppet.conf
 ADD hiera.yaml /etc/puppet/hiera.yaml
