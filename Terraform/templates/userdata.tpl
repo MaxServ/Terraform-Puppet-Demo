@@ -10,6 +10,7 @@ bootcmd:
   - echo ${master_ip} puppet >> /etc/hosts
   - rpm -ivh https://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
   - yum clean all
+  - yum install puppet -y
   - mkdir -p /etc/facter/facts.d
   - echo "is_type=demo" > /etc/facter/facts.d/demo.txt
 puppet:
