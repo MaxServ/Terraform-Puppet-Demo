@@ -70,6 +70,9 @@ resource "aws_instance" "webserver" {
     volume_size = "10"
     delete_on_termination = true
   }
+  # We require the NAT instances to be up & running in order to download the required packages
+  # and receive puppet provisioning from the external puppet master, so make sure they're up:
+  depends_on = ["aws_instance.demo-nat"]
   tags {
     Name = "${format("webserver-%02d.demo.maxserv.com", count.index+1)}"
     resource-group = "${var.resource_group}"
