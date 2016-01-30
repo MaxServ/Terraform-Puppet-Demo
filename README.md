@@ -98,7 +98,7 @@ Covered Software is provided under this License on an “as is” basis, without
 5. Gather the information required for running Terraform. You need your SSH public key and the IP address of the `docker-machine` that holds your (running) puppet master container. Port `8140` will need to be open on the host. I chose to save my public key as `Terraform/certificates/pubkey.pem`.
 		
 		export TF_VAR_public_key="$(cat certificates/pubkey.pem)"
-		export TF_VAR_master_ip=$(docker-machine ip ms-aws-docker01) 		
+		export TF_VAR_master_ip=$(docker-machine ip aws-docker01) 		
 
 6. Launch the infrastructure in AWS.
 
